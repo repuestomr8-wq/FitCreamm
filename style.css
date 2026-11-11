@@ -1,0 +1,506 @@
+/* ===========================
+   RESET BÁSICO Y CONFIGURACIÓN GENERAL
+=========================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    background-color: #ffffff;
+    line-height: 1.6em;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #2e7d32;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #cccccc;
+}
+
+/* ===========================
+   ENCABEZADO / NAVEGACIÓN
+=========================== */
+header {
+    background-color: #2e7d32;
+    padding: 20px 40px;
+    border-bottom: 4px solid #1b5e20;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo span {
+    font-size: 1em;
+}
+
+nav .menu {
+    text-align: center;
+}
+
+nav .menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav .menu li a {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+nav .menu li a:hover {
+    background-color: #ffffff;
+    color: #2e7d32;
+}
+
+/* ===========================
+   SECCIÓN HERO / PRESENTACIÓN
+=========================== */
+.hero {
+    padding: 40px;
+    text-align: center;
+    background-color: #f1f8f1;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.hero-texto h2 {
+    font-size: 2em;
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+.hero-texto p {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1em;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #1b5e20;
+}
+
+/* ===========================
+   SECCIÓN NOSOTROS
+=========================== */
+.nosotros {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nosotros h2 {
+    font-size: 1.8em;
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+.nosotros p {
+    margin-bottom: 20px;
+}
+
+.beneficios {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.beneficios li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* ===========================
+   SECCIÓN CATÁLOGO (TABLA)
+=========================== */
+.catalogo {
+    padding: 40px;
+    background-color: #f1f8f1;
+    text-align: center;
+}
+
+.catalogo h2 {
+    font-size: 1.8em;
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+.catalogo p {
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+table th, table td {
+    border: 1px solid #cccccc;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #2e7d32;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.producto-img {
+    max-width: 80px;
+    border: none;
+}
+
+/* ===========================
+   SECCIÓN FORMULARIO DE PEDIDO
+=========================== */
+.pedido {
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pedido h2 {
+    font-size: 1.8em;
+    color: #1b5e20;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pedido p {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+form textarea {
+    resize: none;
+}
+
+form input[type="submit"] {
+    margin-top: 25px;
+    width: 100%;
+}
+
+/* ===========================
+   SECCIÓN CONTACTO
+=========================== */
+.contacto {
+    padding: 40px;
+    text-align: center;
+    background-color: #f1f8f1;
+}
+
+.contacto h2 {
+    font-size: 1.8em;
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+.contacto p {
+    margin-bottom: 10px;
+}
+
+/* ===========================
+   PIE DE PÁGINA
+   =========================== */
+footer {
+    background-color: #1b5e20;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* ===========================
+   CHATBOT ASISTENTE VIRTUAL
+   =========================== */
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-bubble {
+    width: 60px;
+    height: 60px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.5em;
+}
+
+.chat-bubble:hover {
+    background-color: #1b5e20;
+    transform: scale(1.1);
+}
+
+.chat-bubble span {
+    display: inline-block;
+    animation: robotFloat 3s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.chat-bubble .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 340px;
+    height: 520px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.chat-window.open {
+    display: flex;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-header {
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.4em;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f1f8f1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-bottom-left-radius: 2px;
+    color: #333333;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border-bottom-right-radius: 2px;
+}
+
+.message.system {
+    align-self: center;
+    background-color: transparent;
+    border: none;
+    color: #1b5e20;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    max-width: 100%;
+    padding: 5px;
+}
+
+.chat-quick-replies {
+    padding: 10px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.quick-reply {
+    background-color: #f1f8f1;
+    border: 1px solid #2e7d32;
+    color: #2e7d32;
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.quick-reply:hover {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.chat-input {
+    padding: 12px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.chat-input input:focus {
+    border-color: #2e7d32;
+}
+
+.chat-input button {
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+.chat-input button:hover {
+    background-color: #1b5e20;
+}

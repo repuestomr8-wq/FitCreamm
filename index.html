@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCream | Helados Fit y Proteicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">FitCream<span>🍦</span></h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#pedido">Pedidos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+<li><a href="Sebastian_Herrera/index.html" target="_blank">Portafolio</a></li>
+</ul>
+</nav>
+</header>
+
+    <main>
+
+        <!-- SECCIÓN DE PRESENTACIÓN -->
+        <section id="inicio" class="hero">
+            <img src="img/inicio.jpg" alt="Helado proteico FitCream en una copa" class="hero-img">
+            <div class="hero-texto">
+                <h2>Disfruta sin culpa</h2>
+                <p>En <strong>FitCream</strong> creamos helados artesanales bajos en azúcar y altos en proteína, pensados para quienes cuidan su alimentación sin renunciar al sabor.</p>
+                <a href="#catalogo" class="boton">Ver catálogo</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NOSOTROS -->
+        <section id="nosotros" class="nosotros">
+            <h2>¿Qué es FitCream?</h2>
+            <p>FitCream nace de la idea de unir dos mundos que parecían opuestos: el placer de comer un helado y los objetivos de una vida saludable. Todos nuestros productos son elaborados con ingredientes naturales, bajos en grasa y azúcar, y enriquecidos con proteína de alta calidad.</p>
+            <ul class="beneficios">
+                <li>✔ Alto contenido de proteína</li>
+                <li>✔ Bajo en azúcar</li>
+                <li>✔ Ingredientes naturales</li>
+                <li>✔ Ideal para tu plan nutricional</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN CATÁLOGO -->
+        <section id="catalogo" class="catalogo">
+            <h2>Nuestro Catálogo</h2>
+            <p>Elige entre nuestros sabores disponibles. Todos incluyen información nutricional aproximada por porción (100 g).</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Proteína</th>
+                        <th>Calorías</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="img/producto-chocolate.jpg" alt="Helado FitCream sabor chocolate" class="producto-img"></td>
+                        <td>Chocolate Proteico</td>
+                        <td>15 g</td>
+                        <td>120 kcal</td>
+                        <td>$9.500</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/producto-vainilla.jpg" alt="Helado FitCream sabor vainilla" class="producto-img"></td>
+                        <td>Vainilla Fit</td>
+                        <td>14 g</td>
+                        <td>110 kcal</td>
+                        <td>$9.000</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/producto-fresa.jpg" alt="Helado FitCream sabor fresa" class="producto-img"></td>
+                        <td>Fresa Light</td>
+                        <td>13 g</td>
+                        <td>105 kcal</td>
+                        <td>$9.000</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/producto-mani.jpg" alt="Helado FitCream sabor maní proteico" class="producto-img"></td>
+                        <td>Mantequilla de Maní Proteica</td>
+                        <td>18 g</td>
+                        <td>140 kcal</td>
+                        <td>$10.500</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/producto-cafe.jpg" alt="Helado FitCream sabor café proteico" class="producto-img"></td>
+                        <td>Café Proteico</td>
+                        <td>15 g</td>
+                        <td>115 kcal</td>
+                        <td>$9.500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN FORMULARIO DE PEDIDO / CONTACTO -->
+        <section id="pedido" class="pedido">
+            <h2>Haz tu pedido</h2>
+            <p>Completa el siguiente formulario y te contactaremos para confirmar tu pedido.</p>
+
+            <form action="#" method="post">
+
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required minlength="3">
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3001234567" pattern="[0-9]{10}" required>
+
+                <label for="sabor">Sabor favorito:</label>
+                <select id="sabor" name="sabor" required>
+                    <option value="">-- Selecciona un sabor --</option>
+                    <option value="chocolate">Chocolate Proteico</option>
+                    <option value="vainilla">Vainilla Fit</option>
+                    <option value="fresa">Fresa Light</option>
+                    <option value="mani">Mantequilla de Maní Proteica</option>
+                    <option value="cafe">Café Proteico</option>
+                </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="20" value="1" required>
+
+                <label for="direccion">Dirección de entrega:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Calle, número, barrio">
+
+                <label for="mensaje">Comentarios adicionales:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe aquí cualquier detalle extra..."></textarea>
+
+                <input type="submit" value="Enviar pedido" class="boton">
+            </form>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="contacto">
+            <h2>Contáctanos</h2>
+            <p>📍 Cali, Valle del Cauca, Colombia</p>
+            <p>📞 300 123 4567</p>
+            <p>✉ <a href="mailto:contacto@fitcream.com">contacto@fitcream.com</a></p>
+            <p>Síguenos en nuestras redes:
+                <a href="https://instagram.com" target="_blank">Instagram</a> |
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&    copy; 2026 FitCream. Todos los derechos reservados.</p>
+    </footer>
+
+<!-- CHATBOT ASISTENTE VIRTUAL -->
+<div class="chat-container">
+    <div class="chat-bubble" id="chat-bubble" aria-label="Abrir chat de asistencia FitCream">
+        <span>🤖</span>
+    </div>
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <h3>Asistente FitCream</h3>
+            <button class="chat-close" id="chat-close" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message system">¡Hola! Soy tu asistente virtual de FitCream. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chat-quick-replies" id="chat-quick-replies">
+            <button class="quick-reply" data-pregunta="precios">Precios</button>
+            <button class="quick-reply" data-pregunta="sabores">Sabores</button>
+            <button class="quick-reply" data-pregunta="proteína">Proteína</button>
+            <button class="quick-reply" data-pregunta="recomiéndame">Recomiéndame</button>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button id="chat-enviar" aria-label="Enviar mensaje">→</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sebastián Herrera Benavides | Desarrollador Junior</title>
+<meta name="description" content="Portafolio de Sebastián Herrera Benavides, estudiante de Tecnología en Sistemas de Información y desarrollador junior Frontend/Fullstack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#inicio">SH<span>.</span></a>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav aria-label="Principal">
+    <ul id="menu" class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <p class="hero-hi">Hola, soy</p>
+    <h1>Sebastián Herrera Benavides</h1>
+    <p class="hero-role">Desarrollador <span id="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span></p>
+    <p class="hero-lead">Estudiante de Tecnología en Sistemas de Información. Convierto problemas reales en software claro, ordenado y fácil de usar.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-ghost" href="#contacto">Contactar</a>
+    </div>
+    <p class="hero-place">Santiago de Cali, Valle del Cauca, Colombia</p>
+  </section>
+
+  <section id="sobre-mi" class="section">
+    <h2>Sobre mí</h2>
+    <div class="about">
+      <div class="about-text">
+        <p>Soy estudiante de Tecnología en Sistemas de Información y busco mi lugar como desarrollador junior Frontend o Fullstack. Me apasiona ver cómo unas cuantas líneas de código pueden simplificar el trabajo de una persona o de un negocio entero.</p>
+        <p>Cuando enfrento un problema, primero lo entiendo: hablo con quien lo vive, lo divido en partes pequeñas y lo modelo antes de programar. Después lo construyo, lo pruebo y lo mejoro.</p>
+        <p>Mis proyectos van desde un sistema de gestión para una fábrica familiar hasta una app de hábitos con una mascota capibara. Me gusta que el software sea útil y también agradable.</p>
+      </div>
+      <ul class="facts">
+        <li><strong>Enfoque</strong> Desarrollo web, bases de datos y lógica de software</li>
+        <li><strong>Busco</strong> Prácticas o primer empleo como desarrollador junior</li>
+        <li><strong>Trabajo mejor</strong> Con requisitos claros y equipos que comunican</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="habilidades" class="section alt">
+    <h2>Habilidades técnicas</h2>
+    <div class="skills-grid">
+      <article class="skill-group">
+        <h3>Frontend</h3>
+        <ul>
+          <li data-level="85"><span>HTML5 semántico</span><b>85%</b><div class="bar"><i></i></div></li>
+          <li data-level="80"><span>CSS3 (Flexbox y Grid)</span><b>80%</b><div class="bar"><i></i></div></li>
+          <li data-level="70"><span>JavaScript</span><b>70%</b><div class="bar"><i></i></div></li>
+        </ul>
+      </article>
+      <article class="skill-group">
+        <h3>Backend y lógica</h3>
+        <ul>
+          <li data-level="70"><span>Java</span><b>70%</b><div class="bar"><i></i></div></li>
+          <li data-level="80"><span>Algoritmos (PSeInt)</span><b>80%</b><div class="bar"><i></i></div></li>
+          <li data-level="55"><span>Bases de datos</span><b>55%</b><div class="bar"><i></i></div></li>
+        </ul>
+      </article>
+      <article class="skill-group">
+        <h3>Herramientas</h3>
+        <ul>
+          <li data-level="65"><span>Git y GitHub</span><b>65%</b><div class="bar"><i></i></div></li>
+          <li data-level="85"><span>VS Code</span><b>85%</b><div class="bar"><i></i></div></li>
+        </ul>
+      </article>
+      <article class="skill-group">
+        <h3>Metodologías</h3>
+        <ul class="tags">
+          <li>Análisis de requerimientos</li><li>Diagramación de sistemas</li><li>Resolución de problemas</li><li>Trabajo en equipo</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="proyectos" class="section">
+    <h2>Proyectos destacados</h2>
+    <div class="projects">
+      <article class="card">
+        <div class="card-art art-fit" aria-hidden="true">🍦</div>
+        <h3>Fitcream</h3>
+        <p class="card-sub">Plataforma de Helados Tradicionales Fitness</p>
+        <p>Propuesta y prototipo de sistema de gestión y software de ventas para una marca de helados artesanales/tradicionales con un enfoque saludable y fitness. Permite optimizar el control de inventario de insumos, la administración de productos, el registro de ventas y la atención al cliente para el negocio.</p>
+        <ul class="tags"><li>Análisis de requerimientos</li><li>Diagramación</li><li>Java</li></ul>
+        <button class="toggle" aria-expanded="false" aria-controls="det-fit">Ver características</button>
+        <div class="details" id="det-fit" hidden>
+          <ul>
+            <li>Control de inventario de producto terminado</li>
+            <li>Registro de insumos y materias primas</li>
+            <li>Seguimiento del proceso de producción</li>
+            <li>Registro y consulta de ventas</li>
+          </ul>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-art art-tonny" aria-hidden="true">🦫</div>
+        <h3>Tonny Planner</h3>
+        <p class="card-sub">App web de hábitos con gamificación</p>
+        <p>Aplicación para crear hábitos y cumplirlos día a día. Tonny, un capibara al estilo Duolingo, te acompaña y te motiva para que no pierdas la constancia.</p>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        <button class="toggle" aria-expanded="false" aria-controls="det-tonny">Ver características</button>
+        <div class="details" id="det-tonny" hidden>
+          <ul>
+            <li>Mascota virtual que anima al completar tareas</li>
+            <li>Sistema de niveles y experiencia</li>
+            <li>Rachas diarias para mantener la constancia</li>
+            <li>Lista de tareas y hábitos personales</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="educacion" class="section alt">
+    <h2>Educación y certificaciones</h2>
+    <ol class="timeline">
+      <li>
+        <h3>Tecnología en Sistemas de Información</h3>
+        <p>En curso · Programación, análisis y diseño de sistemas, bases de datos.</p>
+      </li>
+      <li>
+        <h3>Certificaciones</h3>
+        <p>Agrega aquí tus cursos y certificados (por ejemplo: SENA, Platzi, freeCodeCamp).</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <div class="contact">
+      <div>
+        <p class="contact-lead">¿Tienes una práctica, una idea o una vacante? Escríbeme y respondo pronto.</p>
+        <ul class="contact-list">
+          <li><strong>Email</strong> <a href="sebastian429hb@gmail.com">sebastian429hb@gmail.com</a></li>
+          <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/sebastianherrera" target="_blank" rel="noopener">linkedin.com/in/sebastianherrera</a></li>
+          <li><strong>GitHub</strong> <a href="https://github.com/repuestomr8-wq" target="_blank" rel="noopener">github.com/respuerto8-mq</a></li>
+        </ul>
+      </div>
+      <form id="form" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" required minlength="3">
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="500"></textarea>
+          <small class="count" id="count">0 / 500</small>
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year">2026</span> Sebastián Herrera Benavides · Cali, Colombia</p>
+  <ul>
+    <li><a href="mailto:tu.correo@ejemplo.com">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
