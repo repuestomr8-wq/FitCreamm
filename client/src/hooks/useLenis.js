@@ -23,6 +23,9 @@ export function useLenis() {
         touchMultiplier: 1.5,
         infinite: false,
       });
+
+      // Lenis funciona con el contenedor principal; permitir scroll nativo del navegador
+      lenisRef.current.style.touchAction = 'none';
     } catch (error) {
       console.warn('No se pudo inicializar Lenis:', error.message);
       return;

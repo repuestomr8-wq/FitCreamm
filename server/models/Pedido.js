@@ -15,6 +15,12 @@ const pedidoSchema = new mongoose.Schema(
     direccion: { type: String, required: true, trim: true },
     items: [itemPedidoSchema],
     totalCOP: { type: Number, required: true, min: 0 },
+    metodoPago: {
+      type: String,
+      enum: ['efectivo', 'tarjeta', 'transferencia'],
+      default: 'efectivo',
+    },
+    montoEfectivo: { type: Number, min: 0 },
     estado: {
       type: String,
       enum: ['pendiente', 'confirmado', 'enviado', 'cancelado'],

@@ -1,20 +1,7 @@
 import { useRef } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/ui/SEO';
 
 const Nosotros = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const textRef = useRef(null);
-  const benefitsRef = useRef(null);
-
-  useScrollAnimation(sectionRef, { variant: 'fadeUp', start: 'top 80%' });
-  useScrollAnimation(titleRef, { variant: 'fadeUp', start: 'top 80%', delay: 0.1 });
-  useScrollAnimation(subtitleRef, { variant: 'fadeUp', start: 'top 80%', delay: 0.2 });
-  useScrollAnimation(textRef, { variant: 'fadeUp', start: 'top 80%', delay: 0.3 });
-  useScrollAnimation(benefitsRef, { variant: 'fadeUp', start: 'top 80%', delay: 0.4 });
-
   const beneficios = [
     'Alto contenido de proteína',
     'Bajo en azúcar',
@@ -26,53 +13,68 @@ const Nosotros = () => {
     <>
       <SEO
         title="Nosotros | ¿Qué es FitCream?"
-        description="FitCream nace de unir el placer de comer un helado con los objetivos de una vida saludable. Ingredientes naturales, bajos en grasa y azúcar, altos en proteína."
+        description="FitCream nace en el campo colombiano, elaborado con familias campesinas y frutas frescas del Valle del Cauca. Helados artesanales altos en proteína y bajos en azúcar."
         path="/nosotros"
       />
       <section
-        ref={sectionRef}
         id="nosotros"
         className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
       >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 ref={titleRef} className="font-display text-3xl md:text-5xl font-bold text-fitcream-700 mb-2 tracking-tight opacity-0 translate-y-4">
-            ¿Qué es FitCream?
-          </h2>
-          <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 opacity-0 translate-y-4">
-            Nace de unir dos mundos que parecían opuestos: el placer de comer un
-            helado y los objetivos de una vida saludable.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div ref={textRef} className="space-y-6 opacity-0 translate-y-4">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Todos nuestros productos son elaborados con ingredientes
-              naturales, bajos en grasa y azúcar, y enriquecidos con proteína
-              de alta calidad. Sin culpa, solo sabor.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Cada porción de 100 g está pensada para encajar en tu plan
-              nutricional, ya sea después de entrenar o como un antojo saludable
-              en cualquier momento del día.
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-fitcream-700 mb-2 tracking-tight">
+              ¿Qué es FitCream?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Nace en el corazón del Valle del Cauca, donde el campo colombiano
+              es nuestro mayor orgullo y nuestra mejor materia prima.
             </p>
           </div>
 
-          <div ref={benefitsRef} className="flex flex-col gap-3 opacity-0 translate-y-4">
-            {beneficios.map((b, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 pl-4 border-l-2 border-fitcream-500"
-              >
-                <span className="text-fitcream-500 font-bold">✓</span>
-                <span className="text-gray-700">{b}</span>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Columna izquierda: Narrativa */}
+            <div className="space-y-7">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                FitCream no nace en una fábrica, nace en la tierra. Cada helado
+                que sale de nuestra cocina empieza mucho antes: en las manos de
+                familias campesinas del Valle del Cauca que siembran con cariño
+                las fresas, el cacao y las vainillas que endulzan nuestros
+                helados artesanales.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Trabajamos mano a mano con productores locales que cultivan
+                con respeto y pasión, sin prisa, respetando los ciclos de la
+                naturaleza. La leche que usamos proviene de ganaderías cercanas,
+                donde el bienestar animal es prioridad y cada gota lleva el
+                sabor auténtico del campo colombiano.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Así, cada cucharada de FitCream es un homenaje a quienes
+                trabajan la tierra. Son helados hechos con ingredientes
+                naturales, altos en proteína y bajos en azúcar, pensados para
+                quienes cuidan su alimentación sin renunciar al placer de un
+                buen helado. Porque lo bueno de Colombia merece ser compartido.
+              </p>
+            </div>
+
+            {/* Columna derecha: Beneficios */}
+            <div className="flex flex-col gap-4 space-y-6">
+              <h3 className="text-2xl font-bold text-fitcream-700 mb-4 tracking-tight">
+                ¿Por qué elegir FitCream?
+              </h3>
+              {beneficios.map((b, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 pl-4 border-l-3 border-fitcream-500 bg-white/50 rounded-r-lg py-3 px-4 hover:bg-white/20 transition-colors"
+                >
+                  <span className="text-fitcream-400 font-bold text-lg">✓</span>
+                  <span className="text-gray-700">{b}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

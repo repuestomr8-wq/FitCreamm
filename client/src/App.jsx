@@ -9,6 +9,7 @@ import Contacto from './sections/Contacto';
 import Footer from './components/layout/Footer';
 import CartDrawer from './components/ui/CartDrawer';
 import ChatBot from './components/ui/ChatBot';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 import SkipToContent from './components/ui/SkipToContent';
 import { CartProvider } from './context/CartContext';
 import { useLenis } from './hooks/useLenis';
@@ -19,7 +20,7 @@ function App() {
   return (
     <CartProvider>
       <HelmetProvider>
-        <div ref={lenisRef} className="flex flex-col min-h-svh overflow-x-hidden">
+        <div ref={lenisRef} className="flex flex-col min-h-svh">
           <SkipToContent />
           <Navbar />
           <main className="flex-grow relative">
@@ -32,6 +33,7 @@ function App() {
           <Footer />
           <CartDrawer />
           <ChatBot />
+          <WhatsAppButton />
         </div>
       </HelmetProvider>
     </CartProvider>

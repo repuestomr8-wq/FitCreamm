@@ -65,6 +65,22 @@ const cartReducer = (state, action) => {
         ),
       };
     }
+    case 'UPDATE_QUANTITY': {
+      // Alias para SET_QUANTITY, usado por Pedido.jsx
+      const { id, cantidad } = action.payload;
+      if (cantidad <= 0) {
+        return {
+          ...state,
+          items: state.items.filter((i) => i.id !== id),
+        };
+      }
+      return {
+        ...state,
+        items: state.items.map((i) =>
+          i.id === id ? { ...i, cantidad } : i
+        ),
+      };
+    }
     case 'CHECKOUT':
       return { ...state, items: [], isOpen: false };
     default:
@@ -103,6 +119,10 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'SET_QUANTITY', payload: { id, cantidad } });
   }, []);
 
+  const updateQuantity = useCallback((id, cantidad) => {
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, cantidad } });
+  }, []);
+
   const checkout = useCallback(() => {
     dispatch({ type: 'CHECKOUT' });
   }, []);
@@ -114,6 +134,7 @@ export const CartProvider = ({ children }) => {
     removeItem,
     toggleQuantity,
     setQuantity,
+    updateQuantity,
     checkout,
   };
 

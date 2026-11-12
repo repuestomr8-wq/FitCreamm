@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const mongoose = require('mongoose');
 const Producto = require('../models/Producto');
 
@@ -57,18 +57,20 @@ const productos = [
 
 const seed = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    const uri = process.env.MONGO_URI;
+    if (!uri) {
+      throw new Error('MONGO_URI no definida en .env');
+    }
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 15000,
     });
     await Producto.deleteMany({});
     await Producto.insertMany(productos);
-    console.log('Seed completado: 5 productos insertados');
+    console.log('Seed completado: 5 productos insertados en MongoDB Atlas (fitcream)');
     process.exit(0);
   } catch (error) {
-    console.warn('No se pudo conectar a MongoDB Atlas para el seed:', error.message);
-    console.warn('Continuando con productos en memoria (mock local). La aplicación funcionará con el fallback de la API.');
-    process.exit(0);
+    console.error('Error ejecutando el seed:', error.message);
+    process.exit(1);
   }
 };
 

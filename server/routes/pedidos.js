@@ -3,47 +3,41 @@ const Pedido = require('../models/Pedido');
 
 const router = express.Router();
 
-const PEDIDOS_MOCK = [];
-
 router.post('/', async (req, res) => {
   try {
-    const { nombre, email, telefono, direccion, items, totalCOP } = req.body;
+    const { nombre, email, telefono, direccion, items, totalCOP, metodoPago, montoEfectivo } = req.body;
 
     if (!nombre || !email || !telefono || !direccion || !items || items.length === 0) {
       return res.status(400).json({ error: 'Faltan campos requeridos' });
     }
 
-    const pedido = {
-      _id: 'mock-' + Date.now(),
+    const pedido = new Pedido({
       nombre,
       email,
       telefono,
       direccion,
       items,
       totalCOP,
+      metodoPago: metodoPago || 'efectivo',
+      montoEfectivo,
       estado: 'pendiente',
-      creadoEn: new Date(),
-    };
+    });
 
-    // Intentar guardar en MongoDB si está disponible
-    try {
-      const saved = await Pedido.create(pedido);
-      res.status(201).json(saved);
-    } catch (dbError) {
-      PEDIDOS_MOCK.push(pedido);
-      res.status(201).json(pedido);
-    }
+    const saved = await pedido.save();
+    res.status(201).json(saved);
   } catch (error) {
+    console.error('Error creando pedido:', error.message);
     res.status(500).json({ error: 'Error creando pedido' });
   }
 });
 
 router.get('/', async (req, res) => {
   try {
-    const pedidos = await Pedido.find().sort({ creadoEn: -1 });
+    const pedidos = await Pedido.find().sort({ createdAt: -1 });
     res.json(pedidos);
   } catch (error) {
-    res.json(PEDIDOS_MOCK);
+    console.error('Error obteniendo pedidos:', error.message);
+    res.status(500).json({ error: 'Error obteniendo pedidos' });
   }
 });
 

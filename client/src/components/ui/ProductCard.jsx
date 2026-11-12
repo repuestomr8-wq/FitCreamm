@@ -1,9 +1,11 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useCart } from '../../context/CartContext';
+import ProductModal from './ProductModal';
 
 const ProductCard = ({ producto }) => {
   const { addItem } = useCart();
   const imgRef = useRef(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const img = imgRef.current;
@@ -56,12 +58,26 @@ const ProductCard = ({ producto }) => {
           </span>
         </div>
 
-        <button
-          onClick={handleAdd}
-          className="w-full btn-ghost flex items-center justify-center gap-2"
-        >
-          <span>+ Agregar</span>
-        </button>
+        <div className="flex flex-col sm:flex-row gap-2">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="flex-1 w-full sm:w-auto btn-ghost flex items-center justify-center gap-2 text-sm"
+          >
+            <span>Ver detalles</span>
+          </button>
+          <button
+            onClick={handleAdd}
+            className="flex-1 w-full sm:w-auto btn-primary flex items-center justify-center gap-2 text-sm"
+          >
+            <span>+ Agregar</span>
+          </button>
+        </div>
+
+        <ProductModal
+          product={producto}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
       </div>
     </article>
   );

@@ -2,19 +2,21 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const uri = process.env.MONGODB_URI;
+    // Acepta tanto MONGODB_URI como MONGO_URI por si acaso
+    const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+    
     if (!uri) {
-      console.warn('MONGODB_URI no definida en .env. Usando modo sin base de datos (mocks).');
-      return;
+      throw new Error('No se encontró ninguna URI de MongoDB en el archivo .env');
     }
+
     await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 15000,
     });
-    console.log('MongoDB Atlas conectado');
+    
+    console.log('¡MongoDB Atlas conectado exitosamente (fitcream)! 🍦');
   } catch (error) {
-    console.warn('No se pudo conectar a MongoDB Atlas:', error.message);
-    console.warn('El servidor continuará usando productos en memoria (mock local).');
+    console.error('Error conectando a MongoDB Atlas:', error.message);
+    process.exit(1);
   }
 };
 
