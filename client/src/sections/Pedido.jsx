@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import SEO from '../components/ui/SEO';
+import { api } from '../services/api';
 
 const METODOS_PAGO = [
   {
@@ -126,8 +127,9 @@ const Pedido = () => {
 
     setSubmitting(true);
 
+    // Mapear asegurando que tenga _id o id como productoId
     const pedidoItems = items.map((item) => ({
-      productoId: item.id,
+      productoId: item._id || item.id,
       nombre: item.nombre,
       cantidad: item.cantidad,
       precioUnitarioCOP: item.precio,
@@ -137,32 +139,23 @@ const Pedido = () => {
       metodoPago === 'efectivo' ? (parseFloat(montoEfectivo) || 0) : undefined;
 
     try {
-      const res = await fetch('/api/pedidos', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nombre: formData.nombre.trim(),
-          email: formData.email.trim(),
-          telefono: formData.telefono.trim(),
-          direccion: formData.direccion.trim(),
-          mensaje: formData.mensaje.trim(),
-          items: pedidoItems,
-          totalCOP: total,
-          metodoPago,
-          montoEfectivo: montoEfectivoValor,
-        }),
+      await api.crearPedido({
+        nombre: formData.nombre.trim(),
+        email: formData.email.trim(),
+        telefono: formData.telefono.trim(),
+        direccion: formData.direccion.trim(),
+        mensaje: formData.mensaje.trim(),
+        items: pedidoItems,
+        totalCOP: total,
+        metodoPago,
+        montoEfectivo: montoEfectivoValor,
       });
 
-      if (res.ok) {
-        setConfirmado(true);
-        checkout();
-      } else {
-        const data = await res.json().catch(() => ({}));
-        setErrors({ general: data.error || 'Error al enviar el pedido. Intenta de nuevo.' });
-        setSubmitting(false);
-      }
+      setPagoModalOpen(false);
+      setConfirmado(true);
+      checkout();
     } catch (err) {
-      setErrors({ general: 'Error de conexión al enviar el pedido.' });
+      setPagoErrors({ general: err.message || 'Error al enviar el pedido. Intenta de nuevo.' });
       setSubmitting(false);
     }
   };
@@ -244,7 +237,7 @@ const Pedido = () => {
                 <div className="bg-white rounded-2xl border border-fitcream-100 shadow-sm p-5 space-y-4">
                   {items.map((item) => (
                     <div
-                      key={item.id}
+                      key={item.id || item._id}
                       className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-fitcream-50 rounded-xl border border-fitcream-100"
                     >
                       <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -268,7 +261,7 @@ const Pedido = () => {
                         <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                           <button
                             type="button"
-                            onClick={() => decrementQuantity(item.id)}
+                            onClick={() => decrementQuantity(item.id || item._id)}
                             className="px-2.5 py-1 text-gray-600 hover:bg-gray-100 font-bold transition-colors"
                             title="Disminuir"
                           >
@@ -278,12 +271,12 @@ const Pedido = () => {
                             type="number"
                             min="1"
                             value={item.cantidad}
-                            onChange={(e) => setItemQuantity(item.id, e.target.value)}
+                            onChange={(e) => setItemQuantity(item.id || item._id, e.target.value)}
                             className="w-12 text-center text-xs font-bold text-gray-800 focus:outline-none bg-transparent py-1"
                           />
                           <button
                             type="button"
-                            onClick={() => incrementQuantity(item.id)}
+                            onClick={() => incrementQuantity(item.id || item._id)}
                             className="px-2.5 py-1 text-gray-600 hover:bg-gray-100 font-bold transition-colors"
                             title="Aumentar"
                           >
@@ -422,6 +415,12 @@ const Pedido = () => {
             </div>
 
             <div className="p-6 flex-1 overflow-y-auto">
+              {pagoErrors.general && (
+                <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+                  {pagoErrors.general}
+                </div>
+              )}
+
               {/* Resumen del total */}
               <div className="mb-6 p-4 rounded-xl bg-fitcream-100 border border-fitcream-200">
                 <div className="flex justify-between mb-2">
