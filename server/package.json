@@ -1,0 +1,21 @@
+{
+  "name": "fitcream-server",
+  "version": "1.0.0",
+  "description": "Backend API para FitCream - Helados artesanales bajos en azúcar y altos en proteína",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "seed": "node seed/productos.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "mongoose": "^8.24.8"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
