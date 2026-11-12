@@ -8,7 +8,8 @@ export const useProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/productos');
+        const API_URL = import.meta.env.VITE_API_URL || 'https://fitcreamm.onrender.com';
+        const res = await fetch(`${API_URL}/api/productos`);
         if (!res.ok) throw new Error('Error al cargar productos');
         const data = await res.json();
         setProductos(data);
