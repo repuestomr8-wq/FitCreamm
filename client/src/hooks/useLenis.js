@@ -1,53 +1,31 @@
-import { useRef, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 
-let lenisInstance = null;
-let rafId = null;
-
 export function useLenis() {
-  const lenisRef = useRef(null);
+  const [lenisInstance, setLenisInstance] = useState(null);
 
   useEffect(() => {
-    if (lenisInstance) return;
-    if (!lenisRef.current) return;
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+      smoothTouch: false, // Evita conflictos con gestos táctiles en celulares
+      touchMultiplier: 2,
+    });
 
-    try {
-      lenisInstance = new Lenis({
-        wrapper: lenisRef.current,
-        content: lenisRef.current,
-        lerp: 0.08,
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        smoothTouch: true,
-        touchMultiplier: 1.5,
-        infinite: false,
-      });
-
-      // Lenis funciona con el contenedor principal; permitir scroll nativo del navegador
-      lenisRef.current.style.touchAction = 'none';
-    } catch (error) {
-      console.warn('No se pudo inicializar Lenis:', error.message);
-      return;
-    }
+    setLenisInstance(lenis);
 
     function raf(time) {
-      if (!lenisInstance) return;
-      rafId = requestAnimationFrame(() => {
-        lenisInstance.raf(time);
-        raf(time);
-      });
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-    raf(0);
+
+    const rafId = requestAnimationFrame(raf);
 
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      if (lenisInstance) {
-        lenisInstance.destroy();
-        lenisInstance = null;
-      }
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
     };
   }, []);
 
-  return { lenisRef, lenis: lenisInstance };
+  return { lenisRef: { current: null }, lenis: lenisInstance };
 }
